@@ -26,7 +26,7 @@ export default function Dashboard() {
   }
 
   return (
-    <main className='flex flex-col lg:flex-row gap-8 p-6'>
+    <main className='flex flex-col lg:flex-row items-start gap-8 p-6'>
       <div className='max-w-[279px] w-full p-4 bg-gray-200 rounded-md'>
         <div className='max-w-[150px] mx-auto flex flex-col items-center'>
           <FaUserCircle size={60} className='text-4xl text-primary mb-4' />
