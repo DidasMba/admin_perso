@@ -27,17 +27,18 @@ export default function Dashboard() {
 
   return (
     <main className='flex flex-col lg:flex-row items-start gap-8 p-6'>
-      <div className='max-w-[279px] w-full p-4 bg-gray-200 rounded-md'>
-        <div className='max-w-[150px] mx-auto flex flex-col items-center'>
-          <FaUserCircle size={60} className='text-4xl text-primary mb-4' />
-          <button className=''>Télécharger une photo</button>
-        </div>
+     <div className='max-w-[279px] w-full p-4 bg-gray-200 rounded-md'>
+  <div className='max-w-[150px] mx-auto flex flex-col items-center'>
+    <FaUserCircle size={80} className='text-4xl text-primary mb-4' />
+    <button className='hover:bg-customHoverBlue text-black px-4 py-2 border-2 border-gray-300 rounded-md'>Télécharger une photo</button>
+  </div>
 
-        <div className=''>
-          <h1 className='font-bold'>{userName}</h1>
-          <p>Localisation</p>
-        </div>
-      </div>
+  <div className='flex flex-col items-center mt-4'> {/* Centrer le texte et ajouter un espacement supérieur */}
+    <h1 className='font-bold text-lg mb-1'>{userName}</h1> {/* Ajout d'un espacement inférieur */}
+    <p className='text-gray-600'>Localisation</p> {/* Ajout d'une couleur pour le texte de localisation */}
+  </div>
+</div>
+
 
 
       <div className=' flex-1 p-4'>
@@ -45,7 +46,7 @@ export default function Dashboard() {
         {/* Salutation et bouton d'édition */}
         <div className='flex justify-between items-center mb-6'>
           <h2 className='text-2xl font-semibold'>Salut {userName} !</h2>
-          <button className='bg-green-500 text-white px-4 py-2 rounded-md'>Éditer Profil</button>
+          <button className=' text-black px-4 py-2 border-2 border-gray-300 hover:bg-customHoverBlue rounded-md'>Éditer Profil</button>
         </div>
 
         {/* Historique */}

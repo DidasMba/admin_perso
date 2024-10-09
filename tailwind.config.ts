@@ -12,8 +12,12 @@ const config: Config = {
         primary: "#05264F",
         secondary: "#0b3466",
         active: "#6E6EF7",
+        customHoverBlue: 'rgb(83, 223, 252)',
+
+      
       },
     },
+    
   },
   plugins: [],
 };

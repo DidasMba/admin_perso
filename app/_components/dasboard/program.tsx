@@ -41,7 +41,7 @@ const Program = () => {
                 <h3 className='text-xl font-semibold mb-1'>{title}</h3>
                 <p className='text-gray-700'>{description}</p>
               </div>
-              <button className='bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-500'>
+              <button className='bg-primary text-white px-4 py-1 rounded-2xl hover:bg-customHoverBlue'>
                 Continuer
               </button>
             </div>
