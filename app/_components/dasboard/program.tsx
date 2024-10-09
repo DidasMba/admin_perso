@@ -43,9 +43,14 @@ const Program = () => {
             </div>
 
             {/* Détails du programme */}
-            <div className='flex-1'>
+            <div className='flex-1 flex justify-between items-center'>
+              <div>
+                 
               <h3 className='text-xl font-bold mb-2'>{program.title}</h3>
+              
               <p className='text-gray-600 mb-4'>{program.description}</p>
+              </div>
+
               
               {/* Bouton Continuer */}
               <button className='bg-blue-500 text-white px-4 py-2 rounded-md ml-auto'>
