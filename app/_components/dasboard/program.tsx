@@ -1,9 +1,7 @@
 import React from 'react';
-// import { CiDeliveryTruck } from 'react-icons/ci'; // Exemple d'icône, tu peux en ajouter d'autres ou remplacer
-import Image from 'next/image'; // Si tu utilises Next.js, sinon utilise la balise <img>
+import Image from 'next/image';
 
 const Program = () => {
-  // Exemple de programmes passés avec une image, un titre, et une description
   const programs = [
     {
       id: 1,
@@ -16,7 +14,6 @@ const Program = () => {
       title: 'Programme B',
       description: 'Description du programme B...',
       imageUrl: '/bien3.jpg',
-    
     },
     {
       id: 3,
@@ -29,32 +26,22 @@ const Program = () => {
   return (
     <main className='mt-4'>
       <h4 className='text-lg font-semibold mb-4'>Programmes Passés</h4>
-      <div className='space-y-6'>
-        {programs.map(program => (
-          <div key={program.id} className='bg-white p-4 rounded-md shadow-md flex items-start space-x-4'>
-            {/* Image de programme */}
-            <div className='w-32 h-32 flex-shrink-0'>
-              <Image 
-                src={program.imageUrl} 
-                alt={program.title} 
-                width={128} 
-                height={128} 
-                className='rounded-md object-cover' 
-              />
-            </div>
-
-            {/* Détails du programme */}
+      <div className='space-y-4'>
+        {programs.map(({ id, title, description, imageUrl }) => (
+          <div key={id} className='bg-white p-4 rounded-lg shadow-md flex items-start space-x-4 transition hover:shadow-lg'>
+            <Image 
+              src={imageUrl} 
+              alt={title} 
+              width={128} 
+              height={128} 
+              className='w-32 h-32 rounded-lg object-cover' 
+            />
             <div className='flex-1 flex justify-between items-center'>
               <div>
-                 
-              <h3 className='text-xl font-bold mb-2'>{program.title}</h3>
-              
-              <p className='text-gray-600 mb-4'>{program.description}</p>
+                <h3 className='text-xl font-semibold mb-1'>{title}</h3>
+                <p className='text-gray-700'>{description}</p>
               </div>
-
-              
-              {/* Bouton Continuer */}
-              <button className='bg-blue-500 text-white px-4 py-2 rounded-md ml-auto'>
+              <button className='bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-500'>
                 Continuer
               </button>
             </div>

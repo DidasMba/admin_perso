@@ -8,7 +8,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 export default function Dashboard() {
   const [toggleTabBar, setToggleTabBar] = useState("programs"); // État pour gérer l'affichage des programmes
-  const userName = "Didas"; // Nom de la personne, tu peux le remplacer dynamiquement
+  const userName = "Christian Banza"; // Nom de la personne, tu peux le remplacer dynamiquement
 
   const handleTabBar = (tab: string) => {
     setToggleTabBar(tab);
@@ -30,11 +30,11 @@ export default function Dashboard() {
       <div className='max-w-[279px] w-full p-4 bg-gray-200 rounded-md'>
         <div className='max-w-[150px] mx-auto flex flex-col items-center'>
           <FaUserCircle size={60} className='text-4xl text-primary mb-4' />
-          <button className=''>uploaad a photo</button>
+          <button className=''>Télécharger une photo</button>
         </div>
 
         <div className=''>
-          <h1 className='font-bold'>Nom</h1>
+          <h1 className='font-bold'>{userName}</h1>
           <p>Localisation</p>
         </div>
       </div>
