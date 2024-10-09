@@ -58,8 +58,18 @@ export default function Dashboard() {
             >
               Programme
             </li>
-            <li onClick={() => handleTabBar("event")} className='font-bold p-3 rounded-md cursor-pointer'>Événement</li>
-            <li onClick={() => handleTabBar("article")} className='font-bold p-3 rounded-md cursor-pointer'>Articles</li>
+            <li
+              className={`p-3 font-bold rounded-md cursor-pointer ${toggleTabBar === "event" ? 'border-b-2 border-black' : ''}`}
+              onClick={() => handleTabBar("event")}
+            >
+              Événement
+            </li>
+           <li
+              className={`p-3 font-bold rounded-md cursor-pointer ${toggleTabBar === "article" ? 'border-b-2 border-black' : ''}`}
+              onClick={() => handleTabBar("article")}
+            >
+              Articles
+            </li>
           </ul>
           <div>
             {renderHistory()}
