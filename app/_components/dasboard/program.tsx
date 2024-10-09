@@ -48,7 +48,7 @@ const Program = () => {
               <p className='text-gray-600 mb-4'>{program.description}</p>
               
               {/* Bouton Continuer */}
-              <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>
+              <button className='bg-blue-500 text-white px-4 py-2 rounded-md ml-auto'>
                 Continuer
               </button>
             </div>
