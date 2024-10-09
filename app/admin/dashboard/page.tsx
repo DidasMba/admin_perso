@@ -53,7 +53,7 @@ export default function Dashboard() {
           <h3 className='text-xl font-bold '>Historique</h3>
           <ul className='flex space-x-4'>
             <li
-              className='p-3 font-bold rounded-md cursor-pointer'
+               className={`p-3 font-bold rounded-md cursor-pointer ${toggleTabBar === "programs" ? 'border-b-2 border-black' : ''}`}
               onClick={() => handleTabBar("programs")} // Appelle la fonction pour afficher/masquer les programmes passés
             >
               Programme

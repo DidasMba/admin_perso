@@ -9,19 +9,20 @@ const Program = () => {
       id: 1,
       title: 'Programme A',
       description: 'Description du programme A...',
-      imageUrl: '/path-to-your-image-1.jpg',
+      imageUrl: '/blog-1.png',
     },
     {
       id: 2,
       title: 'Programme B',
       description: 'Description du programme B...',
-      imageUrl: '/path-to-your-image-2.jpg',
+      imageUrl: '/bien3.jpg',
+    
     },
     {
       id: 3,
       title: 'Programme C',
       description: 'Description du programme C...',
-      imageUrl: '/path-to-your-image-3.jpg',
+      imageUrl: '/bien5.JPG',
     },
   ];
 
