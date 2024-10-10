@@ -25,6 +25,7 @@ const Articles = () => {
 
   return (
     <main className='mt-4'>
+      
       <h4 className='text-lg font-semibold mb-4'>Articles Récents</h4>
       <div className='space-y-4'>
         {articles.map(({ id, title, description, imageUrl }) => (
