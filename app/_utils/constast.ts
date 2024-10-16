@@ -43,4 +43,25 @@ export const SidebarItems = [
         text: "Feedback",
         Icon: RiFeedbackLine,
     },
+
+
+];
+
+export const events = [
+    {
+        name: "Name Of the Events",
+        date: "12 Mar 2021",
+        time: "3pm - 9pm",
+        location: "Kigali, Rwanda",
+        price: 50,
+        imageUrl: "",
+    },
+    {
+        name: "Name Of the Events",
+        date: "12 Mar 2021",
+        time: "3pm - 9pm",
+        location: "Kigali, Rwanda",
+        price: 50,
+        imageUrl: "",
+    },
 ];

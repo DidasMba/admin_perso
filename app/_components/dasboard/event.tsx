@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 
+
+
 const Event = () => {
   const events = [
     {
@@ -29,13 +31,15 @@ const Event = () => {
       <div className='space-y-4'>
         {events.map(({ id, title, description, imageUrl }) => (
           <div key={id} className='bg-white p-4 rounded-lg shadow-md flex items-start space-x-4 transition hover:shadow-lg'>
-            <Image 
-              src={imageUrl} 
-              alt={title} 
-              width={128} 
-              height={128} 
-              className='w-32 h-32 rounded-lg object-cover' 
-            />
+            
+
+               <div className='max-w-[279px] w-full h-[300px] bg-grayish shadow-sm rounded-md flex items-center justify-center'>
+                    <Image
+                        src={ThumbEvent}
+                        alt='events'
+                        className='w-full h-full object-cover rounded-md'
+                    />
+                </div>
             <div className='flex-1 flex justify-between items-center'>
               <div>
                 <h3 className='text-xl font-semibold mb-1'>{title}</h3>
