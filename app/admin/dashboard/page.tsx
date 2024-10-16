@@ -133,12 +133,12 @@ export default function Dashboard() {
                         {tabItems.map((item) => (
                             <li
                                 key={item.id}
-                                className={`p-3 font-bold cursor-pointer ${
+                                className={`py-3 font-bold cursor-pointer ${
                                     toggleTabBar === item.id
                                         ? "border-b-2 border-black"
                                         : ""
                                 }`}
-                                onClick={() => handleTabBar(item.id)} // Appelle la fonction pour afficher/masquer les programmes passés
+                                onClick={() => handleTabBar(item.id)}
                             >
                                 {item.title}
                             </li>
