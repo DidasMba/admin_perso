@@ -43,8 +43,6 @@ export const SidebarItems = [
         text: "Feedback",
         Icon: RiFeedbackLine,
     },
-
-
 ];
 
 export const events = [
@@ -62,6 +60,48 @@ export const events = [
         time: "3pm - 9pm",
         location: "Kigali, Rwanda",
         price: 50,
+        imageUrl: "",
+    },
+];
+
+export const tabItems = [
+    {
+        id: "programs",
+        title: "Programme",
+    },
+    {
+        id: "event",
+        title: "Événement",
+    },
+    {
+        id: "article",
+        title: "Article",
+    },
+];
+
+export const programsData = [
+    {
+        name: "Program CD",
+        startedIn: "12 Mar 2024",
+        duration: "6 Month",
+        courses: 23,
+        progress: "64%",
+        imageUrl: "",
+    },
+    {
+        name: "Program AB",
+        startedIn: "12 Mar 2023",
+        duration: "6 Month",
+        courses: 10,
+        progress: "51%",
+        imageUrl: "",
+    },
+    {
+        name: "Program FH",
+        startedIn: "12 Mar 2022",
+        duration: "6 Month",
+        courses: 14,
+        progress: "31%",
         imageUrl: "",
     },
 ];

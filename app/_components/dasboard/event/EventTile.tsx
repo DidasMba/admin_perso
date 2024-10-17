@@ -1,17 +1,17 @@
 /** @format */
 
-import { ProgramTitleType } from "@/types/program";
+import { EventTitleType, ProgramTitleType } from "@/types/program";
 import Image from "next/image";
 import React from "react";
-import Button from "../common/Button";
+import Button from "../../common/Button";
 
-const ProgramTile: React.FC<ProgramTitleType> = ({
-    name,
-    duration,
-    courses,
-    progress,
-    startedIn,
+const EventTile: React.FC<EventTitleType> = ({
+    title,
+    event_date,
+    price,
     imageUrl,
+    location,
+    time_range,
 }) => {
     const StrongTitle = ({ text }: { text: string }) => (
         <span className='font-semibold text-primary text-xs lg:text-sm'>
@@ -25,27 +25,27 @@ const ProgramTile: React.FC<ProgramTitleType> = ({
                     <Image
                         src={imageUrl}
                         className='h-full w-full object-cover rounded-md'
-                        alt={name}
+                        alt={title}
                     />
                 </div>
                 <div className='flex flex-col gap-1'>
-                    <h5 className='text-sm font-bold md:text-base'>{name}</h5>
+                    <h5 className='text-sm font-bold md:text-base'>{title}</h5>
                     <div className='flex  space-x-8'>
                         <p className='text-xs'>
-                            <StrongTitle text='Date' />: {startedIn}
+                            <StrongTitle text='Date' />: {event_date}
                         </p>
                         <p className='text-xs'>
-                            <StrongTitle text='Duree' />: {duration}
+                            <StrongTitle text='Time' />: {time_range}
                         </p>
                     </div>
                     <p className='text-xs'>
-                        <StrongTitle text='Progression' />: {progress}
+                        <StrongTitle text='Price' />: ${price}
                     </p>
                 </div>
             </div>
             <div className='flex items-center'>
                 <p className='col-span-1 md:col-span-1 text-xs'>
-                    <StrongTitle text='Cours' />: {courses}
+                    <StrongTitle text='Location' />: {location}
                 </p>
             </div>
             <div className='col-span-1 md:col-span-1 flex items-center'>
@@ -57,4 +57,4 @@ const ProgramTile: React.FC<ProgramTitleType> = ({
     );
 };
 
-export default ProgramTile;
+export default EventTile;
