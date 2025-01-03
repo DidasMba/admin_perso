@@ -8,6 +8,8 @@
 
 import React, { useState } from "react";
 import { FaUserCircle, FaCamera, FaImage } from "react-icons/fa";
+import Heading from "../common/Heading";
+import Paragraph from "../common/Paragraph";
 
 const UserProfile: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState("");
@@ -38,8 +40,10 @@ const UserProfile: React.FC = () => {
   };
 
   return (
-    <main className="flex flex-col items-center p-6 min-h-screen">
-      <h1>Mon Profile</h1>
+    <main className="flex flex-col items-start p-6 min-h-screen">
+      {/* <Heading>Mon Profile</Heading> */}
+
+      <Heading text={`Mon Profile`} />
       <div className="w-full max-w-6xl bg-white shadow-lg rounded-lg">
         <div
           className="h-48 bg-cover bg-center relative"
@@ -100,9 +104,12 @@ const UserProfile: React.FC = () => {
         </div>
 
         <div className="mt-20 p-6 text-center">
-          <h2 className="text-xl font-medium text-gray-700">
+          {/* <h2 className="text-xl font-medium text-gray-700">
             Nom d'utilisateur
-          </h2>
+          </h2> */}
+
+          <Paragraph text={`Nom d'utilisateur`} />
+
           <p className="text-sm text-gray-500">Adresse email</p>
         </div>
       </div>
