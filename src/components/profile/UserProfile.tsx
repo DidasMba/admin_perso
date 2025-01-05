@@ -75,7 +75,7 @@ const UserProfile: React.FC = () => {
                 htmlFor="avatar-image-upload"
                 aria-label="Changer la photo de profil"
               >
-                <FaCamera size={16} className="text-yellow-500" />
+                <FaCamera size={16} className="text-yellow-300" />
               </label>
               <input
                 id="avatar-image-upload"
