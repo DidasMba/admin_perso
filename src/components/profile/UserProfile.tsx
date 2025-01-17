@@ -68,14 +68,13 @@ const UserProfile: React.FC = () => {
                   className="text-gray-500 bg-white p-2 rounded-full"
                 />
               )}
-
               {/* Icône caméra avec couleur #4a5568 (gris foncé) */}
               <label
-                className="absolute bottom-2 right-2 bg-[#4a5568] text-white rounded-full p-2 shadow-md hover:bg-[#2d3748] cursor-pointer"
+                className="absolute bottom-2 right-2 bg-customBlue text-white rounded-full p-2 shadow-md hover:bg-[#2d3748] cursor-pointer"
                 htmlFor="avatar-image-upload"
                 aria-label="Changer la photo de profil"
               >
-                <FaCamera size={16} className="text-yellow-300" />
+                <FaCamera size={16} className="" />
               </label>
               <input
                 id="avatar-image-upload"
@@ -89,7 +88,7 @@ const UserProfile: React.FC = () => {
 
           {/* Icône pour changer l'image de fond */}
           <label
-            className="absolute top-2 right-2 bg-white text-[#4a5568] p-2 rounded-full cursor-pointer shadow-md"
+            className="absolute top-2 right-2 bg-customBlue text-[#4a5568] p-2 rounded-full cursor-pointer shadow-md"
             htmlFor="background-image-upload"
           >
             <FaImage size={20} />
