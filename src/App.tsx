@@ -18,7 +18,7 @@ function App() {
         }
       />
       <Route
-        path="/admin/planning"
+        path="/admin/event"
         element={
           <ProtectedPage>
             <PageTitle title="User Profile | Soracert admin" />
