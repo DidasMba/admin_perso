@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         primary: "#05264F",
+        customBlue: "rgb(5, 38, 79)",
         secondary: "#0b3466",
         active: "#6E6EF7",
         customHoverBlue: "rgb(83, 223, 252)",
