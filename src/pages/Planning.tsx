@@ -5,7 +5,7 @@ const Planning: React.FC = () => {
   return (
     <BaseLayout>
       <div>
-        <h1>Planing</h1>
+        <h1>Mes événements</h1>
       </div>
     </BaseLayout>
   );
