@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { FaUserCircle, FaCamera, FaImage } from "react-icons/fa";
 import Heading from "../common/Heading";
 import Paragraph from "../common/Paragraph";
+import { useGetMeQuery } from "../../lib/features/slice/authSlice";
 
 const UserProfile: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState("");
   const [avatarImage, setAvatarImage] = useState("");
+
+  const { data, isLoading } = useGetMeQuery(null);
 
   // Fonction pour changer l'image de fond via une URL
   const handleBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +33,13 @@ const UserProfile: React.FC = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  if (isLoading)
+    return (
+      <div className="min-h-[70svh] flex justify-center items-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
 
   return (
     <main className="flex flex-col items-start p-6 min-h-screen">
@@ -99,7 +109,7 @@ const UserProfile: React.FC = () => {
 
           <Paragraph text={`Nom d'utilisateur`} />
 
-          <p className="text-sm text-gray-500">Adresse email</p>
+          <p className="text-sm text-gray-500">{data?.user.firstname}</p>
           <p className="text-sm text-gray-500"> role or position</p>
         </div>
       </div>

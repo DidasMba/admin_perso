@@ -43,7 +43,20 @@ const authApi = apiSlice.injectEndpoints({
         };
       },
     }),
-    getMe: builder.query({
+    getMe: builder.query<
+      {
+        status: string;
+        user: {
+          id: number;
+          firstname: string;
+          lastname: string;
+          avatar: string;
+          role: string;
+          isVerified: boolean;
+        };
+      },
+      null
+    >({
       query: () => {
         return {
           url: "/user/profile",
