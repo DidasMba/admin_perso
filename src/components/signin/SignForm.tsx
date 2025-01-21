@@ -35,7 +35,7 @@ export default function LoginForm() {
             email: value.email,
             password: value.password,
           }).unwrap();
-          if (response.status === "success") {
+          if (response.status === "status") {
             toast.success("Access granted");
             dispatch(setToken(response.data.access_token));
             navigate("/admin/profile");

@@ -56,9 +56,9 @@ const UserProfile: React.FC = () => {
           <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
             {/* Avatar */}
             <div className="relative">
-              {avatarImage ? (
+              {data?.user.avatar ? (
                 <img
-                  src={avatarImage}
+                  src={avatarImage ? avatarImage : data?.user.avatar}
                   alt="Avatar"
                   className="text-gray-200 bg-white rounded-full p-1 shadow-md w-32 h-32 object-cover"
                 />
@@ -107,10 +107,10 @@ const UserProfile: React.FC = () => {
             Nom d'utilisateur
           </h2> */}
 
-          <Paragraph text={`Nom d'utilisateur`} />
+          <Paragraph text={data?.user.lastname!} />
 
           <p className="text-sm text-gray-500">{data?.user.firstname}</p>
-          <p className="text-sm text-gray-500"> role or position</p>
+          <p className="text-sm text-gray-500">{data?.user.lastname}</p>
         </div>
       </div>
     </main>
