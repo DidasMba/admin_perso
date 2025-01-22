@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { FaUserCircle, FaCamera, FaImage } from "react-icons/fa";
 import Heading from "../common/Heading";
 import Paragraph from "../common/Paragraph";
+import { useGetMeQuery } from "../../lib/features/slice/authSlice";
 
 const UserProfile: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState("");
   const [avatarImage, setAvatarImage] = useState("");
+
+  const { data, isLoading } = useGetMeQuery(null);
 
   // Fonction pour changer l'image de fond via une URL
   const handleBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +34,13 @@ const UserProfile: React.FC = () => {
     }
   };
 
+  if (isLoading)
+    return (
+      <div className="min-h-[70svh] flex justify-center items-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+
   return (
     <main className="flex flex-col items-start p-6 min-h-screen">
       <Heading text={`Profile`} />
@@ -46,9 +56,9 @@ const UserProfile: React.FC = () => {
           <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
             {/* Avatar */}
             <div className="relative">
-              {avatarImage ? (
+              {data?.user.avatar ? (
                 <img
-                  src={avatarImage}
+                  src={avatarImage ? avatarImage : data?.user.avatar}
                   alt="Avatar"
                   className="text-gray-200 bg-white rounded-full p-1 shadow-md w-32 h-32 object-cover"
                 />
@@ -97,10 +107,10 @@ const UserProfile: React.FC = () => {
             Nom d'utilisateur
           </h2> */}
 
-          <Paragraph text={`Nom d'utilisateur`} />
+          <Paragraph text={data?.user.lastname!} />
 
-          <p className="text-sm text-gray-500">Adresse email</p>
-          <p className="text-sm text-gray-500"> role or position</p>
+          <p className="text-sm text-gray-500">{data?.user.firstname}</p>
+          <p className="text-sm text-gray-500">{data?.user.lastname}</p>
         </div>
       </div>
     </main>

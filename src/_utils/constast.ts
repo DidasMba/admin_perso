@@ -6,6 +6,8 @@ import { TbMessage2Question } from "react-icons/tb";
 import { RiFeedbackLine } from "react-icons/ri";
 import { LiaStoreAltSolid } from "react-icons/lia";
 
+export const TOKEN = "auth-sora";
+
 export const SidebarItems = [
   {
     name: "profile",

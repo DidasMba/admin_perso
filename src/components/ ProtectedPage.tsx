@@ -7,8 +7,8 @@ const ProtectedPage: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const location = useLocation();
-  const isAuth = useSelector((state: RootState) => state.auth.isAuthencated);
-  if (!isAuth)
+  const token = useSelector((state: RootState) => state.auth.token);
+  if (!token)
     return <Navigate to={"/signin"} state={{ from: location }} replace />;
   return children;
 };

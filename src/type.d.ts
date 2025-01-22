@@ -1,5 +1,5 @@
 type AuthState = {
-  isAuthencated: boolean;
+  token: string | null;
   user: {
     id: number;
     firstname: string;

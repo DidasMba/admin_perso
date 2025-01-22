@@ -8,7 +8,7 @@ import PasswordField from "../common/inputs/PasswordField";
 import ErrorMessage from "../common/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 import {
-  setIAuthenticated,
+  setToken,
   useSigninMutation,
 } from "../../lib/features/slice/authSlice";
 import { signinSchema } from "../../_utils/validations/siginSchema";
@@ -17,9 +17,7 @@ import { AppDispatch, RootState } from "../../lib/store";
 import { useEffect } from "react";
 
 export default function LoginForm() {
-  const isAuthenticated = useSelector(
-    (state: RootState) => state.auth.isAuthencated
-  );
+  const token = useSelector((state: RootState) => state.auth.token);
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const [signin, { isLoading, error, isError }] = useSigninMutation();
@@ -37,9 +35,9 @@ export default function LoginForm() {
             email: value.email,
             password: value.password,
           }).unwrap();
-          if (response.status === "success") {
+          if (response.status === "status") {
             toast.success("Access granted");
-            dispatch(setIAuthenticated(true));
+            dispatch(setToken(response.data.access_token));
             navigate("/admin/profile");
           }
         } catch (error) {
@@ -49,10 +47,10 @@ export default function LoginForm() {
     });
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (token) {
       navigate("/admin/profile");
     }
-  }, [isAuthenticated]);
+  }, [token]);
 
   return (
     <div className="max-w-[400px] mx-auto w-full  gap-4 rounded-md px-6 py-7 flex flex-col lg:gap-6 items-center shadow-md bg-white">
