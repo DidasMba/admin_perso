@@ -6,6 +6,7 @@ const Planning: React.FC = () => {
     <BaseLayout>
       <div>
         <h1>Mes événements</h1>
+        <h1>Mes événements</h1>
       </div>
     </BaseLayout>
   );
