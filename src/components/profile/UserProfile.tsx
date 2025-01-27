@@ -3,12 +3,18 @@ import { FaUserCircle, FaCamera, FaImage } from "react-icons/fa";
 import Heading from "../common/Heading";
 import Paragraph from "../common/Paragraph";
 import { useGetMeQuery } from "../../lib/features/slice/authSlice";
+import EditButton from "../common/buttons/EditButton";
+import ProfileEditForm from "./ProfileEditForm";
+// import ProfileEditForm from "./ProfileEditForm";
 
 const UserProfile: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState("");
   const [avatarImage, setAvatarImage] = useState("");
 
   const { data, isLoading } = useGetMeQuery(null);
+  const [isEditing, setIsEditing] = useState(false);
+  // const { data, isLoading } = useGetMeQuery(null);
 
   // Fonction pour changer l'image de fond via une URL
   const handleBackgroundChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,11 +46,10 @@ const UserProfile: React.FC = () => {
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
-
   return (
-    <main className="flex flex-col items-start p-6 min-h-screen">
+    <main className="w-full flex flex-col items-start p-6 min-h-screen">
       <Heading text={`Profile`} />
-      <div className="w-full max-w-6xl bg-white shadow-lg rounded-lg">
+      <div className="w-full bg-white shadow-lg rounded-lg">
         <div
           className="h-48 bg-cover bg-center relative"
           style={{
@@ -101,18 +106,19 @@ const UserProfile: React.FC = () => {
             className="hidden"
           />
         </div>
-
         <div className="mt-20 p-6 text-center">
           {/* <h2 className="text-xl font-medium text-gray-700">
             Nom d'utilisateur
           </h2> */}
-
           <Paragraph text={data?.user.lastname!} />
 
           <p className="text-sm text-gray-500">{data?.user.firstname}</p>
           <p className="text-sm text-gray-500">{data?.user.lastname}</p>
         </div>
+        {/* Utilisation du bouton d'édition */}
+        <EditButton onClick={() => setIsVisible(true)} />
       </div>
+      {isVisible && <ProfileEditForm setIsVisible={setIsVisible} />}
     </main>
   );
 };
