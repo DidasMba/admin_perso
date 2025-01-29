@@ -119,12 +119,13 @@ const ProfileEditForm: React.FC<ProfileEditFormProps> = ({
   initialData,
   onSubmit,
 }) => {
+  console.log("Initial Data:", initialData);
   // Utilisation de useFormik pour gérer l'état et la soumission du formulaire
   const formik = useFormik({
-    initialValues: initialData,
+    initialValues: initialData || { firstname: "", lastname: "", email: "" },
     onSubmit: (values) => {
-      onSubmit(values); // On passe les données mises à jour au parent
-      setIsVisible(false); // Fermer le modal après la soumission
+      onSubmit(values);
+      setIsVisible(false);
     },
   });
 
