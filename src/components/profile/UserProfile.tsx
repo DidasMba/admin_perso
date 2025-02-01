@@ -16,6 +16,8 @@ const UserProfile: React.FC = () => {
   const { data, isLoading } = useGetMeQuery(null);
   const [isEditing, setIsEditing] = useState(false);
 
+  console.log(data);
+
   if (isLoading)
     return (
       <div className="min-h-[70svh] flex justify-center items-center">
@@ -93,6 +95,10 @@ const UserProfile: React.FC = () => {
           {data?.user.email && (
             <p className="text-sm text-gray-500">{data.user.email}</p>
           )}
+
+          <p className="text-sm text-gray-500">
+            Genre: {data?.user.gender || "Non spécifié"}
+          </p>
         </div>
         {/* Utilisation du bouton d'édition */}
         <EditButton onClick={() => setIsVisible(true)} />
