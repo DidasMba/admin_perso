@@ -17,7 +17,7 @@ export const SidebarItems = [
   },
   {
     name: "planning",
-    path: "/admin/planning",
+    path: "/admin/event",
     text: "Mes événements",
     Icon: LuCalendar,
   },
