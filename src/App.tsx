@@ -3,7 +3,7 @@ import PageTitle from "./components/common/PageTitle";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
 import ProtectedPage from "./components/ ProtectedPage";
-import Planning from "./pages/Planning";
+import Event from "./pages/Event";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         element={
           <ProtectedPage>
             <PageTitle title="User Profile | Soracert admin" />
-            <Planning />
+            <Event />
           </ProtectedPage>
         }
       />
