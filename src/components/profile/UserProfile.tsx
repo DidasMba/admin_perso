@@ -32,7 +32,7 @@ const UserProfile: React.FC = () => {
     );
 
   return (
-    <main className="w-full flex flex-col items-start p-6 min-h-screen">
+    <main className="w-full flex flex-col items-start p-6">
       <Heading text={`Profile`} />
       <div className="w-full bg-white shadow-lg rounded-lg">
         <div
