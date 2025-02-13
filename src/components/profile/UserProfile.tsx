@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { FaUserCircle, FaCamera } from "react-icons/fa";
+import {
+  FaUserCircle,
+  FaCamera,
+  FaEnvelope,
+  FaVenusMars,
+} from "react-icons/fa";
 import Heading from "../common/Heading";
 import Paragraph from "../common/Paragraph";
 import { useGetMeQuery } from "../../lib/features/slice/authSlice";
 import EditButton from "../common/buttons/EditButton";
 import ProfileEditForm from "./ProfileEditForm";
+// import UserInfo from "./UserInfo";
 
 // Image par défaut
 const defaultBackgroundImage = "/bgsora.jpeg";
@@ -82,7 +88,8 @@ const UserProfile: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="mt-20 p-6 text-center">
+        {/* <UserInfo user={data?.user} /> */}
+        {/* <div className="bg-red-500 mt-20 p-6 text-center">
           <Paragraph text={data?.user.lastname || "Nom inconnu"} />
 
           <p className="text-sm text-gray-500">
@@ -93,13 +100,49 @@ const UserProfile: React.FC = () => {
           </p>
 
           {data?.user.email && (
-            <p className="text-sm text-gray-500">{data.user.email}</p>
+            <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+              <FaEnvelope /> {data.user.email}
+            </p>
           )}
 
-          <p className="text-sm text-gray-500">
-            Genre: {data?.user.gender || "Non spécifié"}
+          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+            <FaVenusMars /> Genre: {data?.user.gender || "Non spécifié"}
           </p>
+        </div> */}
+
+        <div className="mt-20 p-6 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <Paragraph text={data?.user.lastname || "Nom inconnu"} />
+
+              <p>Firstname</p>
+              <p className="text-sm text-gray-500">
+                {data?.user.firstname || "Prénom inconnu"}
+              </p>
+            </div>
+
+            <div>
+              <p>Lastname</p>
+              <p className="text-sm text-gray-500">
+                {data?.user.lastname || "Nom inconnu"}
+              </p>
+
+              <h1>email address</h1>
+              {data?.user.email && (
+                <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+                  <FaEnvelope /> {data.user.email}
+                </p>
+              )}
+            </div>
+
+            {/* <div>
+              <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
+                <FaVenusMars /> Genre: {data?.user.gender || "Non spécifié"}
+              </p>
+            </div> */}
+          </div>
         </div>
+
         {/* Utilisation du bouton d'édition */}
         <EditButton onClick={() => setIsVisible(true)} />
       </div>
