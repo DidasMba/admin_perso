@@ -9,11 +9,13 @@ interface ProfileEditFormProps {
     firstname: string;
     lastname: string;
     email: string;
+    username: string;
   };
   onSubmit: (updatedData: {
     firstname: string;
     lastname: string;
     email: string;
+    username: string;
   }) => void;
 }
 
@@ -25,7 +27,12 @@ const ProfileEditForm: React.FC<ProfileEditFormProps> = ({
   console.log("Initial Data:", initialData);
   // Utilisation de useFormik pour gérer l'état et la soumission du formulaire
   const formik = useFormik({
-    initialValues: initialData || { firstname: "", lastname: "", email: "" },
+    initialValues: initialData || {
+      firstname: "",
+      lastname: "",
+      email: "",
+      username: "",
+    },
     onSubmit: (values) => {
       onSubmit(values);
       setIsVisible(false);
@@ -43,6 +50,26 @@ const ProfileEditForm: React.FC<ProfileEditFormProps> = ({
 
         {/* Formulaire avec Formik */}
         <form onSubmit={formik.handleSubmit} className="space-y-4">
+          {/* Username */}
+          <div>
+            <label
+              htmlFor="username"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Nom d'Utilisateur
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formik.values.firstname}
+              onChange={formik.handleChange}
+              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              placeholder="Enter your first username"
+              required
+            />
+          </div>
+
           {/* Prénom */}
           <div>
             <label
@@ -79,26 +106,6 @@ const ProfileEditForm: React.FC<ProfileEditFormProps> = ({
               onChange={formik.handleChange}
               className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
               placeholder="Enter your last name"
-              required
-            />
-          </div>
-
-          {/* Email */}
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
-              placeholder="Enter your email"
               required
             />
           </div>
