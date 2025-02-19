@@ -3,7 +3,7 @@ import {
   FaUserCircle,
   FaCamera,
   FaEnvelope,
-  FaVenusMars,
+  // FaVenusMars,
 } from "react-icons/fa";
 import Heading from "../common/Heading";
 import Paragraph from "../common/Paragraph";
@@ -20,7 +20,7 @@ const UserProfile: React.FC = () => {
   const [avatarImage, setAvatarImage] = useState("");
 
   const { data, isLoading } = useGetMeQuery(null);
-  const [isEditing, setIsEditing] = useState(false);
+  // const [isEditing, setIsEditing] = useState(false);
 
   console.log(data);
 
@@ -32,7 +32,7 @@ const UserProfile: React.FC = () => {
     );
 
   return (
-    <main className="w-full flex flex-col items-start p-6">
+    <main className="w-full flex flex-col items-start p-6 min-h-screen">
       <Heading text={`Profile`} />
       <div className="w-full bg-white shadow-lg rounded-lg">
         <div
@@ -88,58 +88,108 @@ const UserProfile: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* <UserInfo user={data?.user} /> */}
-        {/* <div className="bg-red-500 mt-20 p-6 text-center">
-          <Paragraph text={data?.user.lastname || "Nom inconnu"} />
 
-          <p className="text-sm text-gray-500">
-            {data?.user.firstname || "Prénom inconnu"}
-          </p>
-          <p className="text-sm text-gray-500">
-            {data?.user.lastname || "Nom inconnu"}
-          </p>
-
-          {data?.user.email && (
-            <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-              <FaEnvelope /> {data.user.email}
-            </p>
-          )}
-
-          <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-            <FaVenusMars /> Genre: {data?.user.gender || "Non spécifié"}
-          </p>
-        </div> */}
-
-        <div className="mt-20 p-6 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* <div className="mt-20 p-6 text-center">
+          <div className="space-y-6">
             <div>
               <Paragraph text={data?.user.lastname || "Nom inconnu"} />
 
-              <p>Firstname</p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500">Firstname</p>
+              <p className="text-lg font-semibold text-gray-700">
                 {data?.user.firstname || "Prénom inconnu"}
               </p>
             </div>
 
             <div>
-              <p>Lastname</p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-gray-500">Lastname</p>
+              <p className="text-lg font-semibold text-gray-700">
                 {data?.user.lastname || "Nom inconnu"}
               </p>
+            </div>
 
-              <h1>email address</h1>
-              {data?.user.email && (
-                <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-                  <FaEnvelope /> {data.user.email}
+            <div>
+              <p className="text-sm text-gray-500">Email Address</p>
+              {data?.user.email ? (
+                <p className="text-lg font-semibold text-gray-700">
+                  {data.user.email}
+                </p>
+              ) : (
+                <p className="text-lg font-semibold text-gray-700">
+                  Email inconnu
                 </p>
               )}
             </div>
 
-            {/* <div>
-              <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
-                <FaVenusMars /> Genre: {data?.user.gender || "Non spécifié"}
-              </p>
-            </div> */}
+            {data?.user.phone && (
+              <div>
+                <p className="text-sm text-gray-500">Phone Number</p>
+                <p className="text-lg font-semibold text-gray-700">
+                  {data.user.phone || "Numéro inconnu"}
+                </p>
+              </div>
+            )}
+
+            {data?.user.gender && (
+              <div>
+                <p className="text-lg font-semibold text-gray-700">Gender</p>
+                <p className="text-sm text-gray-500">
+                  {data.user.gender || "Non spécifié"}
+                </p>
+              </div>
+            )}
+          </div>
+        </div> */}
+
+        <div className="flex justify-center">
+          <div className="mt-20 p-6 text-left  ml-20 border border-gray-300 rounded-lg bg-white max-w-lg">
+            <div className="space-y-6 p-4">
+              <div>
+                <Paragraph text={data?.user.lastname || "Nom inconnu"} />
+
+                <p className="text-sm text-gray-500">Firstname</p>
+                <p className="text-lg font-semibold text-gray-700">
+                  {data?.user.firstname || "Prénom inconnu"}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm text-gray-500">Lastname</p>
+                <p className="text-lg font-semibold text-gray-700">
+                  {data?.user.lastname || "Nom inconnu"}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm text-gray-500">Email Address</p>
+                {data?.user.email ? (
+                  <p className="text-lg font-semibold text-gray-700">
+                    {data.user.email}
+                  </p>
+                ) : (
+                  <p className="text-lg font-semibold text-gray-700">
+                    Email inconnu
+                  </p>
+                )}
+              </div>
+
+              {data?.user.phone && (
+                <div>
+                  <p className="text-sm text-gray-500">Phone Number</p>
+                  <p className="text-lg font-semibold text-gray-700">
+                    {data.user.phone || "Numéro inconnu"}
+                  </p>
+                </div>
+              )}
+
+              {data?.user.gender && (
+                <div>
+                  <p className="text-lg font-semibold text-gray-700">Gender</p>
+                  <p className="text-sm text-gray-500">
+                    {data.user.gender || "Non spécifié"}
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
