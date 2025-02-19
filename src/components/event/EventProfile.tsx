@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "../common/Heading";
 
 // Définition de l'interface pour typer les événements
 interface Event {
@@ -12,7 +13,7 @@ interface Event {
 // Composant pour l'événement en cours
 const CurrentEvent: React.FC<{ event: Event }> = ({ event }) => (
   <div className="mb-8">
-    <h2 className="text-2xl font-bold mb-4">Événement en cours</h2>
+    <Heading text={`Événement enregistré`} />
     <div className="relative w-full h-96 rounded-xl overflow-hidden shadow-lg">
       <img
         src={event.image}
@@ -83,7 +84,7 @@ const EventProfile: React.FC = () => {
 
         {/* Événements passés */}
         <div className="w-full">
-          <h2 className="text-2xl font-bold mb-4">Événements passés</h2>
+          <Heading text={`Événements passés`} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {pastEvents.map((event) => (
               <EventCard key={event.id} event={event} />
