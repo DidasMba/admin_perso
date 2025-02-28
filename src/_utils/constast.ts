@@ -1,7 +1,7 @@
 /** @format */
 
 import { LuPackage, LuCalendar } from "react-icons/lu";
-import { TbLogs } from "react-icons/tb";
+// import { TbLogs } from "react-icons/tb";
 import { TbMessage2Question } from "react-icons/tb";
 import { RiFeedbackLine } from "react-icons/ri";
 import { LiaStoreAltSolid } from "react-icons/lia";
@@ -22,10 +22,10 @@ export const SidebarItems = [
     Icon: LuCalendar,
   },
   {
-    name: "blogs",
-    path: "/admin/blogs",
-    text: "Blogs",
-    Icon: TbLogs,
+    name: "calendar",
+    path: "/admin/calendar",
+    text: "Calendar",
+    Icon: LuCalendar,
   },
   {
     name: "career",
