@@ -53,6 +53,7 @@ const authApi = apiSlice.injectEndpoints({
           avatar: string;
           role: string;
           isVerified: boolean;
+          gender?: string; // Add gender field
         };
       },
       null

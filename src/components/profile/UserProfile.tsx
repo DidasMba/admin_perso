@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   FaUserCircle,
   FaCamera,
-  FaEnvelope,
+
   // FaVenusMars,
 } from "react-icons/fa";
 import Heading from "../common/Heading";
@@ -88,57 +88,6 @@ const UserProfile: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="mt-20 p-6 text-center">
-          <div className="space-y-6">
-            <div>
-              <Paragraph text={data?.user.lastname || "Nom inconnu"} />
-
-              <p className="text-sm text-gray-500">Firstname</p>
-              <p className="text-lg font-semibold text-gray-700">
-                {data?.user.firstname || "Prénom inconnu"}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-sm text-gray-500">Lastname</p>
-              <p className="text-lg font-semibold text-gray-700">
-                {data?.user.lastname || "Nom inconnu"}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-sm text-gray-500">Email Address</p>
-              {data?.user.email ? (
-                <p className="text-lg font-semibold text-gray-700">
-                  {data.user.email}
-                </p>
-              ) : (
-                <p className="text-lg font-semibold text-gray-700">
-                  Email inconnu
-                </p>
-              )}
-            </div>
-
-            {data?.user.phone && (
-              <div>
-                <p className="text-sm text-gray-500">Phone Number</p>
-                <p className="text-lg font-semibold text-gray-700">
-                  {data.user.phone || "Numéro inconnu"}
-                </p>
-              </div>
-            )}
-
-            {data?.user.gender && (
-              <div>
-                <p className="text-lg font-semibold text-gray-700">Gender</p>
-                <p className="text-sm text-gray-500">
-                  {data.user.gender || "Non spécifié"}
-                </p>
-              </div>
-            )}
-          </div>
-        </div> */}
 
         <div className="flex justify-center">
           <div className="mt-20 p-6 text-left  ml-20 border border-gray-300 rounded-lg bg-white max-w-lg">
