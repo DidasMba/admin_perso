@@ -5,6 +5,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import fr from "date-fns/locale/fr";
 import { userEvents } from "./eventData";
 import EventModal from "./EventModal";
+import Heading from "../common/Heading";
 
 // Localisation pour les dates
 const locales = { fr };
@@ -21,7 +22,7 @@ const CalendarView: React.FC = () => {
 
   return (
     <div className="p-6 bg-white rounded-lg shadow ">
-      <h2 className="text-2xl font-bold mb-4">Mes Événements</h2>
+      <Heading text="Mes Événements" />
 
       <Calendar
         localizer={localizer}
