@@ -88,39 +88,27 @@ const UserProfile: React.FC = () => {
             </div>
           </div>
         </div>
-
         <div className="flex justify-center">
-          <div className="mt-20 p-6 text-left  ml-20 border border-gray-300 rounded-lg bg-white max-w-lg">
-            <div className="space-y-6 p-4">
+          <div className="mt-20 p-6 border border-gray-300 rounded-lg bg-white max-w-3xl w-full">
+            <div className="grid grid-cols-2 gap-6 p-4">
               <div>
-                <Paragraph text={data?.user.lastname || "Nom inconnu"} />
-
-                <p className="text-sm text-gray-500">Firstname</p>
+                <p className="text-sm text-gray-500">First Name</p>
                 <p className="text-lg font-semibold text-gray-700">
-                  {data?.user.firstname || "Prénom inconnu"}
+                  {data?.user.firstname || "Nom inconnu"}
                 </p>
               </div>
-
               <div>
-                <p className="text-sm text-gray-500">Lastname</p>
+                <p className="text-sm text-gray-500">Last Name</p>
                 <p className="text-lg font-semibold text-gray-700">
-                  {data?.user.lastname || "Nom inconnu"}
+                  {data?.user.lastname || "Prénom inconnu"}
                 </p>
               </div>
-
               <div>
                 <p className="text-sm text-gray-500">Email Address</p>
-                {data?.user.email ? (
-                  <p className="text-lg font-semibold text-gray-700">
-                    {data.user.email}
-                  </p>
-                ) : (
-                  <p className="text-lg font-semibold text-gray-700">
-                    Email inconnu
-                  </p>
-                )}
+                <p className="text-lg font-semibold text-gray-700">
+                  {data?.user.email || "Email inconnu"}
+                </p>
               </div>
-
               {data?.user.phone && (
                 <div>
                   <p className="text-sm text-gray-500">Phone Number</p>
@@ -137,10 +125,12 @@ const UserProfile: React.FC = () => {
                     {data.user.gender || "Non spécifié"}
                   </p>
                 </div>
-              )}
-            </div>
-          </div>
-        </div>
+                   )}
+                   </div>
+                 </div>
+               </div>
+            
+              
 
         {/* Utilisation du bouton d'édition */}
         <EditButton onClick={() => setIsVisible(true)} />
