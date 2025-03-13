@@ -1,18 +1,10 @@
 import React, { useState } from "react";
-import {
-  FaUserCircle,
-  FaCamera,
-
-  // FaVenusMars,
-} from "react-icons/fa";
+import { FaUserCircle, FaCamera } from "react-icons/fa";
 import Heading from "../common/Heading";
-import Paragraph from "../common/Paragraph";
 import { useGetMeQuery } from "../../lib/features/slice/authSlice";
 import EditButton from "../common/buttons/EditButton";
 import ProfileEditForm from "./ProfileEditForm";
-// import UserInfo from "./UserInfo";
 
-// Image par défaut
 const defaultBackgroundImage = "/bgsora.jpeg";
 
 const UserProfile: React.FC = () => {
@@ -20,9 +12,6 @@ const UserProfile: React.FC = () => {
   const [avatarImage, setAvatarImage] = useState("");
 
   const { data, isLoading } = useGetMeQuery(null);
-  // const [isEditing, setIsEditing] = useState(false);
-
-  console.log(data);
 
   if (isLoading)
     return (
@@ -33,7 +22,7 @@ const UserProfile: React.FC = () => {
 
   return (
     <main className="w-full flex flex-col items-start p-6 min-h-screen">
-      <Heading text={`Profile`} />
+      <Heading text="Profile" />
       <div className="w-full bg-white shadow-lg rounded-lg">
         <div
           className="h-48 bg-cover bg-center relative"
@@ -45,9 +34,7 @@ const UserProfile: React.FC = () => {
           }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-10"></div>
-
           <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-            {/* Avatar */}
             <div className="relative">
               {data?.user.avatar ? (
                 <img
@@ -61,7 +48,6 @@ const UserProfile: React.FC = () => {
                   className="text-gray-500 bg-white p-2 rounded-full"
                 />
               )}
-              {/* Icône caméra pour changer l'avatar */}
               <label
                 className="absolute bottom-2 right-2 bg-customBlue text-white rounded-full p-2 shadow-md hover:bg-[#2d3748] cursor-pointer"
                 htmlFor="avatar-image-upload"
@@ -89,50 +75,52 @@ const UserProfile: React.FC = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="mt-20 p-6 border border-gray-300 rounded-lg bg-white max-w-3xl w-full">
-            <div className="grid grid-cols-2 gap-6 p-4">
-              <div>
-                <p className="text-sm text-gray-500">First Name</p>
+          <div className="mt-20 p-6 bg-white max-w-lg w-full border border-gray-300 rounded-lg">
+            <div className="bg-gray-200 text-gray-700 text-lg font-semibold p-3 rounded-t-lg">Personal Information</div>
+            <div className="space-y-3 p-4">
+              <div className="flex justify-between">
+                <p className="text-sm text-gray-500">Username</p>
+                <p className="text-lg font-semibold text-gray-700">
+                  {data?.user.username || "Nom d'utilisateur inconnu"}
+                </p>
+              </div>
+              <div className="flex justify-between">
+                <p className="text-sm text-gray-500">Firstname</p>
                 <p className="text-lg font-semibold text-gray-700">
                   {data?.user.firstname || "Nom inconnu"}
                 </p>
               </div>
-              <div>
-                <p className="text-sm text-gray-500">Last Name</p>
+              <div className="flex justify-between">
+                <p className="text-sm text-gray-500">Lastname </p>
                 <p className="text-lg font-semibold text-gray-700">
                   {data?.user.lastname || "Prénom inconnu"}
                 </p>
               </div>
-              <div>
-                <p className="text-sm text-gray-500">Email Address</p>
+              <div className="flex justify-between">
+                <p className="text-sm text-gray-500">Email</p>
                 <p className="text-lg font-semibold text-gray-700">
                   {data?.user.email || "Email inconnu"}
                 </p>
               </div>
               {data?.user.phone && (
-                <div>
+                <div className="flex justify-between">
                   <p className="text-sm text-gray-500">Phone Number</p>
                   <p className="text-lg font-semibold text-gray-700">
                     {data.user.phone || "Numéro inconnu"}
                   </p>
                 </div>
               )}
-
               {data?.user.gender && (
-                <div>
-                  <p className="text-lg font-semibold text-gray-700">Gender</p>
-                  <p className="text-sm text-gray-500">
+                <div className="flex justify-between">
+                  <p className="text-sm text-gray-500">Gender</p>
+                  <p className="text-lg font-semibold text-gray-700">
                     {data.user.gender || "Non spécifié"}
                   </p>
                 </div>
-                   )}
-                   </div>
-                 </div>
-               </div>
-            
-              
-
-        {/* Utilisation du bouton d'édition */}
+              )}
+            </div>
+          </div>
+        </div>
         <EditButton onClick={() => setIsVisible(true)} />
       </div>
       {isVisible && <ProfileEditForm setIsVisible={setIsVisible} />}
