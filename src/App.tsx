@@ -5,7 +5,7 @@ import Profile from "./pages/Profile";
 import ProtectedPage from "./components/ ProtectedPage";
 import Event from "./pages/Event";
 import Calendar from "./pages/Calendar";
-import ProfileForm from "./components/profile/ProfileForm";
+// import ProfileForm from "./components/profile/ProfileForm";
 
 function App() {
   return (
@@ -57,7 +57,7 @@ function App() {
         }
       />
 
-<Route
+{/* <Route
         path="/admin/testsix"
         element={
           <>
@@ -66,7 +66,7 @@ function App() {
             <ProfileForm/>
           </>
         }
-      />
+      /> */}
     </Routes>
   );
 }
