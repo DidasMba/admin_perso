@@ -2,6 +2,14 @@ import { useState } from "react";
 import Heading from "../common/Heading";
 import EventCard from "./EventCard";
 
+// Define the Event interface
+interface Event {
+  id: number;
+  title: string;
+  date: string;
+  image: string;
+}
+
 const EventProfile: React.FC = () => {
   const eventsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,7 +69,7 @@ const EventProfile: React.FC = () => {
   return (
     <div className="w-full">
       {/* Événement enregistré en grand format */}
-      <Heading text="Événements  enregistré" />
+      <Heading text="Événements enregistré" />
       <div className="relative w-full h-80 rounded-xl overflow-hidden shadow-lg mb-6">
         <img
           src={savedEvent.image}
@@ -109,5 +117,3 @@ const EventProfile: React.FC = () => {
 };
 
 export default EventProfile;
-
-//b y p a g n

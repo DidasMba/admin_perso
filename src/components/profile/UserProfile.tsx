@@ -38,7 +38,7 @@ const UserProfile: React.FC = () => {
             <div className="relative">
               {data?.user.avatar ? (
                 <img
-                  src={avatarImage ? avatarImage : data?.user.avatar}
+                  src={avatarImage || data.user.avatar}
                   alt="Avatar"
                   className="text-gray-200 bg-white rounded-full p-1 shadow-md w-32 h-32 object-cover"
                 />
@@ -76,7 +76,9 @@ const UserProfile: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <div className="mt-20 p-6 bg-white max-w-lg w-full border border-gray-300 rounded-lg">
-            <div className="bg-gray-200 text-gray-700 text-lg font-semibold p-3 rounded-t-lg">Personal Information</div>
+            <div className="bg-gray-200 text-gray-700 text-lg font-semibold p-3 rounded-t-lg select-none cursor-default">
+              Personal Information
+            </div>
             <div className="space-y-3 p-4">
               <div className="flex justify-between">
                 <p className="text-sm text-gray-500">Username</p>
@@ -91,7 +93,7 @@ const UserProfile: React.FC = () => {
                 </p>
               </div>
               <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Lastname </p>
+                <p className="text-sm text-gray-500">Lastname</p>
                 <p className="text-lg font-semibold text-gray-700">
                   {data?.user.lastname || "Prénom inconnu"}
                 </p>
@@ -106,7 +108,7 @@ const UserProfile: React.FC = () => {
                 <div className="flex justify-between">
                   <p className="text-sm text-gray-500">Phone Number</p>
                   <p className="text-lg font-semibold text-gray-700">
-                    {data.user.phone || "Numéro inconnu"}
+                    {data.user.phone}
                   </p>
                 </div>
               )}
@@ -114,7 +116,7 @@ const UserProfile: React.FC = () => {
                 <div className="flex justify-between">
                   <p className="text-sm text-gray-500">Gender</p>
                   <p className="text-lg font-semibold text-gray-700">
-                    {data.user.gender || "Non spécifié"}
+                    {data.user.gender}
                   </p>
                 </div>
               )}
