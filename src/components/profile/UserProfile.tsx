@@ -51,7 +51,7 @@ const UserProfile: React.FC = () => {
               <label
                 className="absolute bottom-2 right-2 bg-customBlue text-white rounded-full p-2 shadow-md hover:bg-[#2d3748] cursor-pointer"
                 htmlFor="avatar-image-upload"
-                aria-label="Changer la photo de profil"
+                aria-label="Change profile picture"
               >
                 <FaCamera size={16} />
               </label>
@@ -80,42 +80,42 @@ const UserProfile: React.FC = () => {
               Personal Information
             </div>
             <div className="space-y-3 p-4">
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Username</p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Username</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.username || "Nom d'utilisateur inconnu"}
                 </p>
               </div>
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Firstname</p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Firstname</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.firstname || "Nom inconnu"}
                 </p>
               </div>
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Lastname</p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Lastname</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.lastname || "Prénom inconnu"}
                 </p>
               </div>
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Email</p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Email</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.email || "Email inconnu"}
                 </p>
               </div>
               {data?.user.phone && (
-                <div className="flex justify-between">
-                  <p className="text-sm text-gray-500">Phone Number</p>
-                  <p className="text-lg font-semibold text-gray-700">
+                <div className="flex items-center">
+                  <p className="text-sm text-gray-500 w-1/4">Phone</p>
+                  <p className="text-lg font-semibold text-gray-700 w-3/4">
                     {data.user.phone}
                   </p>
                 </div>
               )}
               {data?.user.gender && (
-                <div className="flex justify-between">
-                  <p className="text-sm text-gray-500">Gender</p>
-                  <p className="text-lg font-semibold text-gray-700">
+                <div className="flex items-center">
+                  <p className="text-sm text-gray-500 w-1/4">Gender</p>
+                  <p className="text-lg font-semibold text-gray-700 w-3/4">
                     {data.user.gender}
                   </p>
                 </div>

@@ -128,7 +128,7 @@ const CalendarView: React.FC = () => {
     const isFutureEvent = isAfter(event.start, now);
 
     const style = {
-      backgroundColor: isPastEvent ? "#d3d3d3" : isFutureEvent ? "#90EE90" : "#FFD700", 
+      backgroundColor: isPastEvent ? "#172554" : isFutureEvent ? "#90EE90" : "#FFD700", 
       color: "#000", 
       borderRadius: "4px",
       border: "none",
