@@ -1,3 +1,5 @@
+//
+
 import React, { useState } from "react";
 import { FaUserCircle, FaCamera } from "react-icons/fa";
 import Heading from "../common/Heading";
@@ -38,7 +40,7 @@ const UserProfile: React.FC = () => {
             <div className="relative">
               {data?.user.avatar ? (
                 <img
-                  src={avatarImage ? avatarImage : data?.user.avatar}
+                  src={avatarImage || data.user.avatar}
                   alt="Avatar"
                   className="text-gray-200 bg-white rounded-full p-1 shadow-md w-32 h-32 object-cover"
                 />
@@ -51,7 +53,7 @@ const UserProfile: React.FC = () => {
               <label
                 className="absolute bottom-2 right-2 bg-customBlue text-white rounded-full p-2 shadow-md hover:bg-[#2d3748] cursor-pointer"
                 htmlFor="avatar-image-upload"
-                aria-label="Changer la photo de profil"
+                aria-label="Change profile picture"
               >
                 <FaCamera size={16} />
               </label>
@@ -76,47 +78,47 @@ const UserProfile: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <div className="mt-20 p-6 bg-white max-w-lg w-full border border-gray-300 rounded-lg">
-            <div className="bg-gray-200 text-gray-700 text-lg font-semibold p-3 rounded-t-lg">
+            <div className="bg-gray-200 text-gray-700 text-lg font-semibold p-3 rounded-t-lg select-none cursor-default">
               Personal Information
             </div>
             <div className="space-y-3 p-4">
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Username</p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Username</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.username || "Nom d'utilisateur inconnu"}
                 </p>
               </div>
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Firstname</p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Firstname</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.firstname || "Nom inconnu"}
                 </p>
               </div>
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Lastname </p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Lastname</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.lastname || "Prénom inconnu"}
                 </p>
               </div>
-              <div className="flex justify-between">
-                <p className="text-sm text-gray-500">Email</p>
-                <p className="text-lg font-semibold text-gray-700">
+              <div className="flex items-center">
+                <p className="text-sm text-gray-500 w-1/4">Email</p>
+                <p className="text-lg font-semibold text-gray-700 w-3/4">
                   {data?.user.email || "Email inconnu"}
                 </p>
               </div>
               {data?.user.phone && (
-                <div className="flex justify-between">
-                  <p className="text-sm text-gray-500">Phone Number</p>
-                  <p className="text-lg font-semibold text-gray-700">
-                    {data.user.phone || "Numéro inconnu"}
+                <div className="flex items-center">
+                  <p className="text-sm text-gray-500 w-1/4">Phone</p>
+                  <p className="text-lg font-semibold text-gray-700 w-3/4">
+                    {data.user.phone}
                   </p>
                 </div>
               )}
               {data?.user.gender && (
-                <div className="flex justify-between">
-                  <p className="text-sm text-gray-500">Gender</p>
-                  <p className="text-lg font-semibold text-gray-700">
-                    {data.user.gender || "Non spécifié"}
+                <div className="flex items-center">
+                  <p className="text-sm text-gray-500 w-1/4">Gender</p>
+                  <p className="text-lg font-semibold text-gray-700 w-3/4">
+                    {data.user.gender}
                   </p>
                 </div>
               )}
