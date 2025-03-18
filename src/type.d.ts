@@ -39,3 +39,11 @@ type PasswordInputType = {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur: (e: React.FocusEvent<HTMLInputElement, Element>) => void;
 };
+
+type Program = {
+  id: string;
+  name: string;
+  status: "En cours" | "Terminé" | "À venir";
+  progress: number;
+  nextEvent?: string;
+};
