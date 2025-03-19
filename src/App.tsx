@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import ProtectedPage from "./components/ ProtectedPage";
 import Event from "./pages/Event";
 import Calendar from "./pages/Calendar";
+// import ProfileForm from "./components/profile/ProfileForm";
 
 function App() {
   return (
@@ -45,6 +46,27 @@ function App() {
           </>
         }
       />
+       <Route
+        path="/admin/testfive"
+        element={
+          <>
+            <PageTitle title="User Profile | Soracert admin" />
+            
+            <Profile/>
+          </>
+        }
+      />
+
+{/* <Route
+        path="/admin/testsix"
+        element={
+          <>
+            <PageTitle title="User Profile | Soracert admin" />
+            
+            <ProfileForm/>
+          </>
+        }
+      /> */}
     </Routes>
   );
 }
