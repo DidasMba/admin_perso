@@ -1,8 +1,17 @@
 import React from "react";
-import ProgramList from "../components/ProgramList";
-import ProgramProgress from "../components/ProgramProgress";
-import UpcomingEvents from "../components/UpcomingEvents";
-import { Program } from "../types/program";
+import BaseLayout from "../components/BaseLayout";
+import ProgramList from "../components/program/ProgramList";
+import ProgramProgress from "../components/program/ProgramProgress";
+
+import UpcomingEvents from "../components/program/UpcomingEvents";
+
+type Program = {
+  id: string;
+  name: string;
+  status: string;
+  progress: number;
+  nextEvent?: string;
+};
 
 const mockPrograms: Program[] = [
   {
@@ -24,14 +33,12 @@ const mockPrograms: Program[] = [
 
 const Program: React.FC = () => {
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Program</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ProgramList programs={mockPrograms} />
-        <ProgramProgress programs={mockPrograms} />
-        <UpcomingEvents programs={mockPrograms} />
-      </div>
-    </div>
+    <BaseLayout>
+      {/* <UserProfile /> */}
+      <ProgramList programs={mockPrograms} />
+      <ProgramProgress programs={mockPrograms} />
+      <UpcomingEvents programs={mockPrograms} />
+    </BaseLayout>
   );
 };
 
