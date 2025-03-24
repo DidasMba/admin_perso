@@ -34,7 +34,7 @@ export const SidebarItems = [
     name: "program",
     path: "/admin/program",
     text: "Mes programmes",
-    Icon: "",
+    Icon: LuCalendar,
   },
   {
     name: "career",
