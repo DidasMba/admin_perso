@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import ProtectedPage from "./components/ ProtectedPage";
 import Event from "./pages/Event";
 import Calendar from "./pages/Calendar";
+import Program from "./pages/Program";
 
 function App() {
   return (
@@ -33,6 +34,15 @@ function App() {
           <ProtectedPage>
             <PageTitle title="User Profile | Soracert admin" />
             <Calendar />
+          </ProtectedPage>
+        }
+      />
+      <Route
+        path="/admin/program"
+        element={
+          <ProtectedPage>
+            <PageTitle title="User Profile | Soracert admin" />
+            <Program />
           </ProtectedPage>
         }
       />
