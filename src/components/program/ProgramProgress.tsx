@@ -34,8 +34,7 @@ const ProgramProgress: React.FC<Props> = ({ programs }) => {
             <div className="flex justify-between items-center mb-1">
               <span className="font-medium">{program.name}</span>
               <span className="text-sm text-gray-500">
-                {formatFrenchDate(program.startDate)} -{" "}
-                {formatFrenchDate(program.endDate)}
+                {formatFrenchDate(program.startDate)} - {formatFrenchDate(program.endDate)}
               </span>
             </div>
             <div className="w-full bg-gray-200 h-2 rounded-full mt-2">
