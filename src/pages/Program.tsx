@@ -3,8 +3,6 @@ import BaseLayout from "../components/BaseLayout";
 import ProgramList from "../components/program/ProgramList";
 import ProgramProgress from "../components/program/ProgramProgress";
 
-import UpcomingEvents from "../components/program/UpcomingEvents";
-
 type Program = {
   id: string;
   name: string;
@@ -37,7 +35,6 @@ const Program: React.FC = () => {
       {/* <UserProfile /> */}
       <ProgramList programs={mockPrograms} />
       <ProgramProgress programs={mockPrograms} />
-      <UpcomingEvents programs={mockPrograms} />
     </BaseLayout>
   );
 };
