@@ -4,10 +4,17 @@ import { Program } from "../types/program";
 type Props = { programs: Program[] };
 
 const ProgramProgress: React.FC<Props> = ({ programs }) => {
-  const formatDate = (dateString?: string) => {
+  const formatFrenchDate = (dateString?: string) => {
     if (!dateString) return "N/A";
+    
     const date = new Date(dateString);
-    return date.toLocaleDateString();
+    const options: Intl.DateTimeFormatOptions = {
+      day: 'numeric',
+      month: 'long',  // This will show full month name in French
+      year: 'numeric'
+    };
+    
+    return date.toLocaleDateString('fr-FR', options);
   };
 
   return (
@@ -19,7 +26,7 @@ const ProgramProgress: React.FC<Props> = ({ programs }) => {
             <div className="flex justify-between items-center mb-1">
               <span className="font-medium">{program.name}</span>
               <span className="text-sm text-gray-500">
-                {formatDate(program.startDate)} - {formatDate(program.endDate)}
+                {formatFrenchDate(program.startDate)} - {formatFrenchDate(program.endDate)}
               </span>
             </div>
             <div className="w-full bg-gray-200 h-2 rounded-full mt-2">
@@ -29,8 +36,8 @@ const ProgramProgress: React.FC<Props> = ({ programs }) => {
               ></div>
             </div>
             <div className="flex justify-between text-xs text-gray-500 mt-1">
-              <span>Start</span>
-              <span>End</span>
+              <span>Début</span>
+              <span>Fin</span>
             </div>
           </li>
         ))}
