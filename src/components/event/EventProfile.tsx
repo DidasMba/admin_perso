@@ -2,6 +2,13 @@ import { useState } from "react";
 import Heading from "../common/Heading";
 import EventCard from "./EventCard";
 
+type Event = {
+  id: number;
+  title: string;
+  date: string;
+  image: string;
+};
+
 const EventProfile: React.FC = () => {
   const eventsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
