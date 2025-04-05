@@ -11,18 +11,11 @@ interface ProfileEditFormProps {
     email: string;
     username: string;
   };
-  onSubmit: (updatedData: {
-    firstname: string;
-    lastname: string;
-    email: string;
-    username: string;
-  }) => void;
 }
 
 const ProfileEditForm: React.FC<ProfileEditFormProps> = ({
   setIsVisible,
   initialData,
-  onSubmit,
 }) => {
   console.log("Initial Data:", initialData);
   // Utilisation de useFormik pour gérer l'état et la soumission du formulaire
@@ -33,8 +26,7 @@ const ProfileEditForm: React.FC<ProfileEditFormProps> = ({
       email: "",
       username: "",
     },
-    onSubmit: (values) => {
-      onSubmit(values);
+    onSubmit: () => {
       setIsVisible(false);
     },
   });
