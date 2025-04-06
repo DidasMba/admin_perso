@@ -47,9 +47,7 @@ const Program: React.FC = () => {
     <BaseLayout>
       {/* <UserProfile /> */}
       <ProgramList programs={mockPrograms} />
-      {/* <ProgramProgress programs={mockPrograms} /> */}
-
-      <div className="mt-6">
+      <div className="mt-8">
         {" "}
         {/* Ajout de l'espace entre les composants */}
         <ProgramProgress programs={mockPrograms} />
