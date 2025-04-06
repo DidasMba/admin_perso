@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { apiSlice } from "../apiSlice";
+import { EventType } from "@/types/event";
 
 interface Event {
   id: number;
@@ -20,6 +22,17 @@ const initialState: EventsState = {
   pastEvents: [],
 };
 
+const eventApi = apiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    getUserEvent: builder.query<
+      { status: string; message: string; data: Array<EventType> },
+      void
+    >({
+      query: () => "/event/user",
+    }),
+  }),
+});
+
 const eventsSlice = createSlice({
   name: "events",
   initialState,
@@ -32,6 +45,8 @@ const eventsSlice = createSlice({
     },
   },
 });
+
+export const { useGetUserEventQuery } = eventApi;
 
 export const { addEvent, setSavedEvent } = eventsSlice.actions;
 export default eventsSlice.reducer;
