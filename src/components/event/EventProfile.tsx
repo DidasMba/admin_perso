@@ -1,17 +1,19 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Heading from "../common/Heading";
 import EventCard from "./EventCard";
+import { useGetUserEventQuery } from "../../lib/features/slice/eventsSlice";
 
-type Event = {
-  id: number;
-  title: string;
-  date: string;
-  image: string;
-};
+// type Event = {
+//   id: number;
+//   title: string;
+//   date: string;
+//   image: string;
+// };
 
 const EventProfile: React.FC = () => {
-  const eventsPerPage = 3;
-  const [currentPage, setCurrentPage] = useState(1);
+  // const eventsPerPage = 3;
+  // const [currentPage, setCurrentPage] = useState(1);
+  const { data, isLoading } = useGetUserEventQuery();
 
   const savedEvent = {
     title: "Conférence IA et Innovation",
@@ -19,51 +21,18 @@ const EventProfile: React.FC = () => {
     image: "/saved-event.jpg",
   };
 
-  const pastEvents: Event[] = [
-    {
-      id: 1,
-      title: "Hackathon Kigali",
-      date: "10 Janvier 2025",
-      image: "/event1.jpg",
-    },
-    {
-      id: 2,
-      title: "Forum Startups Nairobi",
-      date: "20 Décembre 2024",
-      image: "/event2.jpg",
-    },
-    {
-      id: 3,
-      title: "Web3 Summit Lagos",
-      date: "5 Novembre 2024",
-      image: "/event3.jpg",
-    },
-    {
-      id: 4,
-      title: "AI Conference Accra",
-      date: "15 Octobre 2024",
-      image: "/event4.jpg",
-    },
-    {
-      id: 5,
-      title: "Blockchain Meetup Addis",
-      date: "22 Septembre 2024",
-      image: "/event5.jpg",
-    },
-    {
-      id: 6,
-      title: "Tech Expo Cairo",
-      date: "10 Août 2024",
-      image: "/event6.jpg",
-    },
-  ];
-
-  const totalPages = Math.ceil(pastEvents.length / eventsPerPage);
-  const startIndex = (currentPage - 1) * eventsPerPage;
-  const displayedEvents = pastEvents.slice(
-    startIndex,
-    startIndex + eventsPerPage
-  );
+  // const totalPages = Math.ceil(pastEvents.length / eventsPerPage);
+  // const startIndex = (currentPage - 1) * eventsPerPage;
+  // const displayedEvents = pastEvents.slice(
+  //   startIndex,
+  //   startIndex + eventsPerPage
+  // );
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
 
   return (
     <div className="w-full">
@@ -84,13 +53,30 @@ const EventProfile: React.FC = () => {
       {/* Section des événements passés */}
       <Heading text="Événements passés" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {displayedEvents.map((event) => (
+        {data?.data.length === 0 ? (
+          <div>
+            <h3>Pas des evenement trouver</h3>
+          </div>
+        ) : (
+          data?.data.map((event) => (
+            <EventCard
+              key={event.id}
+              event={{
+                id: event.id,
+                title: event.EventTranslation[0].theme,
+                date: event.start_date,
+                image: event.thumbnail,
+              }}
+            />
+          ))
+        )}
+        {/* {displayedEvents.map((event) => (
           <EventCard key={event.id} event={event} />
-        ))}
+        ))} */}
       </div>
 
       {/* Boutons de pagination */}
-      <div className="mt-4 flex justify-center space-x-2">
+      {/* <div className="mt-4 flex justify-center space-x-2">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           className="px-3 py-1 bg-gray-300 rounded disabled:opacity-50"
@@ -110,7 +96,7 @@ const EventProfile: React.FC = () => {
         >
           Suivant
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

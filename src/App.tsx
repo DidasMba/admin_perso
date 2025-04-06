@@ -47,7 +47,7 @@ function App() {
         }
       />
       <Route
-        path="/"
+        path="/signin"
         element={
           <>
             <PageTitle title="Login page | Soracert admin" />
