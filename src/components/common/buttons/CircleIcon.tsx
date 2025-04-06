@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { FC } from "react";
+import { FC } from "react";
 import { IconType } from "react-icons";
 
 const CircleIcon: FC<{ Icon: IconType }> = ({ Icon }) => {

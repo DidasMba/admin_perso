@@ -1,5 +1,13 @@
 import React from "react";
-import { Program } from "../types/program";
+type Program = {
+  id: string;
+  name: string;
+  status: string;
+  nextEvent?: string;
+  startDate?: string;
+  endDate?: string;
+  progress: number;
+};
 
 type Props = { programs: Program[] };
 

@@ -1,13 +1,9 @@
 /** @format */
 
 import { LuPackage, LuCalendar } from "react-icons/lu";
-// import { TbLogs } from "react-icons/tb";
 import { TbMessage2Question } from "react-icons/tb";
 import { RiFeedbackLine } from "react-icons/ri";
 import { LiaStoreAltSolid } from "react-icons/lia";
-// import {  } from "react-icons/ri";
-
-// import Program from "../pages/Program";
 
 export const TOKEN = "auth-sora";
 

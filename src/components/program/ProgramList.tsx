@@ -1,6 +1,7 @@
 import React from "react";
 import Heading from "../common/Heading";
-import { Program } from "../types/program";
+import Program from "@/pages/Program";
+// import { Program } from "../types/program";
 
 type Props = { programs: Program[] };
 

@@ -48,6 +48,9 @@ const authApi = apiSlice.injectEndpoints({
         status: string;
         user: {
           id: number;
+          username: string;
+          email: string;
+          phone: string;
           firstname: string;
           lastname: string;
           avatar: string;
