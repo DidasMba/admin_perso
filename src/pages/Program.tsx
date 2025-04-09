@@ -8,8 +8,8 @@ type Program = {
   name: string;
   status: string;
   progress: number;
-  startDate?: string;
-  endDate?: string;
+  startDate?: string; 
+  endDate?: string;  
   nextEvent?: string;
 };
 
